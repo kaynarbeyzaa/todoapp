@@ -1,9 +1,12 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const port = process.env.PORT || 3000
+app.use(cors())
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
+app.options('*', cors())
 
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }))
